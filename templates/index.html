@@ -1,0 +1,97 @@
+<HTML>
+    <head>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <title>gpt2-recipe-maker<</title>
+    </head>
+    <body>
+        <div class = "container">
+            <div class="jumbotron mt-3">
+
+                <h1>gpt2-recipe-maker</h1>
+                <h3>generate recipe related to Cuisine name </h3>
+                <A>GitHub repository : </A> <A href="https://github.com/ha-mulan/gpt2-recipe-maker"> gpt2-ArticleGenerator repo</A>
+                <br>
+                <A>Open API : </A> <A href="https://ainize.ai/ha-mulan/gpt2-recipe-maker?branch=master"> on Ainize </A>
+
+                <hr class="solid">
+
+                <h2>How to use</h2>
+                <div id="usage">
+                    <p>1. input Cuisine name</p>
+                    <p>2. Press the Run button and wait for about 15 seconds to get the result.</p>
+                </div>
+
+
+                <hr class="solid">
+                <h2>Example</h2>
+                <div id="usage">
+                  <h5>if Cuisine Bread is  you can checkout the result like this</h5>
+                </div>
+                <hr class="solid">
+                <p>
+                  bread in a microwave-safe bowl until smooth<br>
+Remove 1 teaspoon each of peanut oil and vanilla from microwave, stirring often, until smooth<br>
+Serve hot<br>
+<br>
+=====================<br>
+<br>
+<br>
+Stuffed Cabbage with Walnut and Almonds :<br>
+--------------------<br>
+<br>
+1 large head-on cabbage (6 lb total), tough ends trimmed from core, tops trimmed, torn into bite-size pieces<br>
+1 large zucchini (2 lb), cut crosswise into 1-inch lengths<br>
+1 12-ounce can garbanzo beans, rinsed, drained<br>
+2 tablespoons extra-virgin olive oil<br>
+2 tablespoons walnuts (whole or whole well-shaken)<br>
+1 teaspoon ground cardamom<br>
+2 tablespoons chopped fresh tarragon<br>
+1 teaspoon finely grated lemon peel<br>
+Accompaniment: walnut wedges<br>
+--------------------<br>
+<br>
+Cut the cabbage crosswise into 3/4-inch-thick pieces<br>
+Cut the zucchini into 1/2-inch-thick pieces<br>
+Cut the zucchini lengthwise into 1/2-inch-thick pieces<br>
+Wash them by cutting them in kitchen towel<br>
+In a large sieve set over a bowl combine the zucchini, zucchini, garlic, salt, and 1 cup of the oil and stir with a wooden spoon to make a paste<br>
+Add the spinach to the vinaigrette and stir until smooth, about 3 minutes<br>
+Add the tarragon and lemon peel<br>
+                </p>
+
+
+                <hr class="solid">
+                <h2>Make your own recipe </h2>
+                <p>Please enter Cuisine below</p>
+                <input id='food'>
+                <button onclick='printName()'>RUN</button>
+                <p></p>
+                <script type="text/javascript">
+                 function printName()  {
+                   const food = document.getElementById('food').value;
+
+                   fetch('/api/?food='+food).then(function(response){
+                     response.text().then(function(text){
+                       document.getElementById("result").innerText = text;
+                     })
+                   })
+                 }
+               </script>
+                  <hr class="solid">
+                <h2>your generated recipe</h2>
+                  <hr class="solid">
+                <div id='result'></div>
+
+    </div>
+            </div>
+        </div>
+    </body>
+</HTML>
