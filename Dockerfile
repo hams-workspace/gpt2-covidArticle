@@ -1,4 +1,4 @@
-FROM ham5312/covidarticle
+FROM ham5312/covidarticle:1.0
 
 WORKDIR /app
 COPY . .
