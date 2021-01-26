@@ -31,11 +31,7 @@ def handle_requests_by_batch():
                 continue
 
             for requests in requests_batch:
-                # requests['output'] = run_word(requests['input'][0], requests['input'][1])
-                # if len(requests['input']) == 2 :
-                # elif len(requests['input']) == 3 :
-                # requests['output'] = run_model(requests['input'][0][0], requests['input'][0][1], requests['input'][0][2])
-                requests['output'] = run_model(requests['input'][0])#, requests['input'][0][1], requests['input'][0][2])
+                requests['output'] = run_model(requests['input'][0])
 
 
 # 쓰레드
@@ -59,17 +55,9 @@ def run_model(prompt, num=1, length=30):
 
                                         top_k=50,
                                         num_return_sequences=num)
-        # sample_outputs = model.generate(input_ids,max_length)
         generated_texts = ""
-        # print(sample_outputs)
-        # for i, sample_output in enumerate(sample_outputs):
-        #     output = tokenizer.decode(sample_output.tolist()[
-        #                               min_length:], skip_special_tokens=False)
-        #     generated_texts+= output
         for i, sample_output in enumerate(sample_outputs):
             output = tokenizer.decode(sample_output.tolist(),skip_special_tokens=False)
-            # output = tokenizer.decode(sample_output.tolist()[
-                                          # min_length:], skip_special_tokens=True)
             generated_texts+= output+'\n'
         print(generated_texts)
         return generated_texts
@@ -80,8 +68,6 @@ def run_model(prompt, num=1, length=30):
 
 
 
-# @app.route("/gpt2-recipes-maker/", methods=['POST'])
-
 @app.route("/api/", methods=['GET'])
 def generate():
 
@@ -91,9 +77,9 @@ def generate():
     try:
         args = []
 
-        food=request.args.get('food')
+        keyword=request.args.get('keyword')
 
-        args.append(food)
+        args.append(keyword)
 
     except Exception:
         print("Empty Text")
