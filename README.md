@@ -3,7 +3,7 @@
 
 GPT2-gpt2-covidArticle
 =================
-* generate recipes related to input name of cuisine
+* generate article related to input keyword of article
 
  How to use
  ===============
