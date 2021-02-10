@@ -1,5 +1,5 @@
-# FROM ham5312/covidarticle:1.0
-FROM ham5312/huggingface:1.1
+FROM ham5312/covidarticle:1.0
+# FROM ham5312/huggingface:1.1
 
 WORKDIR /app
 COPY . .
