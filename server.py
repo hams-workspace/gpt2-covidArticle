@@ -15,8 +15,8 @@ requests_queue = Queue()
 BATCH_SIZE = 1
 CHECK_INTERVAL = 0.1
 
-tokenizer = AutoTokenizer.from_pretrained("cord19Article")
-model = AutoModelWithLMHead.from_pretrained("cord19Article", return_dict=True)
+tokenizer = AutoTokenizer.from_pretrained("cord19Artice")
+model = AutoModelWithLMHead.from_pretrained("cord19Artice", return_dict=True)
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model.to(device)
 
